@@ -1,0 +1,197 @@
+{
+  "best_macro_f1": 0.4908363190373158,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.9979889040604082,
+      "val_loss": 1.0510312641551922,
+      "micro_f1": 0.40138237472229077,
+      "macro_f1": 0.3842865547734849,
+      "seconds": 8.717663288116455,
+      "per_class_f1": {
+        "opacity": 0.6225596529284165,
+        "diabetic retinopathy": 0.42092154420921546,
+        "glaucoma": 0.13636363636363635,
+        "macular edema": 0.29427792915531337,
+        "macular degeneration": 0.32621951219512196,
+        "retinal vascular occlusion": 0.26299694189602446,
+        "normal": 0.6266666666666667
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.933595749488564,
+      "val_loss": 0.9561055541212035,
+      "micro_f1": 0.437570303712036,
+      "macro_f1": 0.4639551849734519,
+      "seconds": 7.524517297744751,
+      "per_class_f1": {
+        "opacity": 0.7053824362606232,
+        "diabetic retinopathy": 0.5301837270341208,
+        "glaucoma": 0.37613019891500904,
+        "macular edema": 0.2924731182795699,
+        "macular degeneration": 0.3192090395480226,
+        "retinal vascular occlusion": 0.2787456445993031,
+        "normal": 0.7455621301775148
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.906765357202144,
+      "val_loss": 0.9077888244798263,
+      "micro_f1": 0.46375860938012464,
+      "macro_f1": 0.47694849641060266,
+      "seconds": 7.692071199417114,
+      "per_class_f1": {
+        "opacity": 0.7129337539432177,
+        "diabetic retinopathy": 0.4940047961630695,
+        "glaucoma": 0.391304347826087,
+        "macular edema": 0.2877030162412993,
+        "macular degeneration": 0.36018957345971564,
+        "retinal vascular occlusion": 0.30303030303030304,
+        "normal": 0.7894736842105263
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.8834501936966676,
+      "val_loss": 0.8934922751901452,
+      "micro_f1": 0.46841776110068795,
+      "macro_f1": 0.4750128129484814,
+      "seconds": 8.443779468536377,
+      "per_class_f1": {
+        "opacity": 0.7304347826086957,
+        "diabetic retinopathy": 0.4864864864864865,
+        "glaucoma": 0.40633245382585753,
+        "macular edema": 0.30416666666666664,
+        "macular degeneration": 0.348993288590604,
+        "retinal vascular occlusion": 0.2916666666666667,
+        "normal": 0.7570093457943925
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.8752769173666552,
+      "val_loss": 0.8899306964666042,
+      "micro_f1": 0.46078147612156295,
+      "macro_f1": 0.48673471783784905,
+      "seconds": 8.269373893737793,
+      "per_class_f1": {
+        "opacity": 0.7417027417027418,
+        "diabetic retinopathy": 0.5161290322580645,
+        "glaucoma": 0.3854389721627409,
+        "macular edema": 0.30514705882352944,
+        "macular degeneration": 0.3364485981308411,
+        "retinal vascular occlusion": 0.29069767441860467,
+        "normal": 0.8315789473684211
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.866286766494379,
+      "val_loss": 0.9258789211902035,
+      "micro_f1": 0.4519205298013245,
+      "macro_f1": 0.4776158311439725,
+      "seconds": 7.578038215637207,
+      "per_class_f1": {
+        "opacity": 0.7267833109017496,
+        "diabetic retinopathy": 0.48014440433212996,
+        "glaucoma": 0.39293598233995586,
+        "macular edema": 0.3076923076923077,
+        "macular degeneration": 0.33996937212863704,
+        "retinal vascular occlusion": 0.29118773946360155,
+        "normal": 0.8045977011494253
+      }
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.8596640321191569,
+      "val_loss": 0.8892247962292278,
+      "micro_f1": 0.4699486559951676,
+      "macro_f1": 0.4876178555629716,
+      "seconds": 8.313717126846313,
+      "per_class_f1": {
+        "opacity": 0.7352112676056338,
+        "diabetic retinopathy": 0.5083932853717026,
+        "glaucoma": 0.4058679706601467,
+        "macular edema": 0.28677839851024206,
+        "macular degeneration": 0.35800344234079173,
+        "retinal vascular occlusion": 0.2918454935622318,
+        "normal": 0.8272251308900523
+      }
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.8589412688861942,
+      "val_loss": 0.890805338407708,
+      "micro_f1": 0.46552225778295026,
+      "macro_f1": 0.4881052556572575,
+      "seconds": 7.774327993392944,
+      "per_class_f1": {
+        "opacity": 0.7434119278779473,
+        "diabetic retinopathy": 0.5062034739454094,
+        "glaucoma": 0.3946784922394678,
+        "macular edema": 0.3076923076923077,
+        "macular degeneration": 0.3392,
+        "retinal vascular occlusion": 0.29494949494949496,
+        "normal": 0.8306010928961749
+      }
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.844904793401993,
+      "val_loss": 0.8784760376424943,
+      "micro_f1": 0.4750696810157944,
+      "macro_f1": 0.4908363190373158,
+      "seconds": 8.297413110733032,
+      "per_class_f1": {
+        "opacity": 0.7413793103448276,
+        "diabetic retinopathy": 0.5063938618925832,
+        "glaucoma": 0.3973509933774834,
+        "macular edema": 0.29850746268656714,
+        "macular degeneration": 0.36429872495446264,
+        "retinal vascular occlusion": 0.2981366459627329,
+        "normal": 0.8297872340425532
+      }
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.8484693410788735,
+      "val_loss": 0.8721778636589494,
+      "micro_f1": 0.4749121124960051,
+      "macro_f1": 0.48768620272962154,
+      "seconds": 7.325008392333984,
+      "per_class_f1": {
+        "opacity": 0.7374631268436578,
+        "diabetic retinopathy": 0.5053763440860215,
+        "glaucoma": 0.3879310344827586,
+        "macular edema": 0.293398533007335,
+        "macular degeneration": 0.36900369003690037,
+        "retinal vascular occlusion": 0.29957805907172996,
+        "normal": 0.8210526315789474
+      }
+    }
+  ],
+  "train_count": 2748,
+  "val_count": 687,
+  "label_counts": {
+    "opacity": 1533,
+    "diabetic retinopathy": 755,
+    "glaucoma": 597,
+    "macular edema": 516,
+    "macular degeneration": 574,
+    "retinal vascular occlusion": 440,
+    "normal": 525
+  },
+  "calibrated_thresholds": {
+    "opacity": 0.5,
+    "diabetic retinopathy": 0.6,
+    "glaucoma": 0.575,
+    "macular edema": 0.45,
+    "macular degeneration": 0.575,
+    "retinal vascular occlusion": 0.575,
+    "normal": 0.55
+  },
+  "calibrated_micro_f1": 0.5052779732582688,
+  "calibrated_macro_f1": 0.5136092120365958
+}
