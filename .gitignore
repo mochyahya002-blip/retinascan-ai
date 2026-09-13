@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+data/train/
+data/test/
+*.zip
+prediction_submission.csv
