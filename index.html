@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Prototype AI screening penyakit retina berbasis CNN multi-label.">
+  <title>RetinaScan AI — Screening Penyakit Retina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top"><span class="brand-icon">R</span><span>RetinaScan <b>AI</b></span></a>
+    <nav><a href="#screening">Screening</a><a href="#labels">7 Kondisi</a><a href="#model">Model</a></nav>
+    <span class="model-pill {{ 'active' if model_ready else 'inactive' }}"><i></i>{{ 'CNN aktif' if model_ready else 'Model tidak ditemukan' }}</span>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">MULTI-LABEL CNN · RETINAL IMAGE SCREENING</div>
+        <h1>Satu citra. <span>Tujuh kemungkinan kondisi retina.</span></h1>
+        <p class="lead">Prototype screening berbasis CNN yang dapat memberi lebih dari satu label pada satu citra: opacity, retinopati diabetik, glaukoma, edema makula, degenerasi makula, oklusi vaskular retina, dan normal.</p>
+        <div class="hero-actions"><a class="btn primary" href="#screening">Mulai screening</a><a class="btn secondary" href="#model">Lihat model</a></div>
+        <div class="data-stats">
+          <div><strong>3.435</strong><span>citra train</span></div>
+          <div><strong>7</strong><span>label</span></div>
+          <div><strong>1.204</strong><span>citra multi-label</span></div>
+        </div>
+      </div>
+      <div class="retina-card" aria-hidden="true">
+        <div class="retina-orb"><div class="retina-core"></div><span class="scan"></span></div>
+        <div class="signal-card s1"><span>Input</span><b>96 × 96 RGB</b></div>
+        <div class="signal-card s2"><span>Output</span><b>7 sigmoid scores</b></div>
+        <div class="signal-card s3"><span>Mode</span><b>Multi-label</b></div>
+      </div>
+    </section>
+
+    <section id="screening" class="section screening">
+      <div class="section-heading"><span>01 — SCREENING</span><h2>Analisis citra retina</h2><p>Unggah satu citra. Sistem akan menampilkan skor seluruh label dan menandai kondisi yang melewati threshold hasil kalibrasi validation set.</p></div>
+      <div class="screen-grid">
+        <div class="upload-card">
+          <label class="dropzone" id="dropzone" for="fileInput">
+            <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+            <div id="emptyState" class="empty-state"><div class="upload-mark">↥</div><h3>Pilih citra retina</h3><p>Tarik gambar ke sini atau klik untuk memilih file.</p><small>JPG, PNG, WEBP · maks. 10 MB</small></div>
+            <img id="preview" alt="Pratinjau citra retina" hidden>
+          </label>
+          <div class="file-meta" id="fileMeta">Belum ada file dipilih.</div>
+          <div class="actions"><button id="resetBtn" class="btn secondary" type="button">Reset</button><button id="analyzeBtn" class="btn primary" type="button" disabled>Analisis dengan CNN</button></div>
+        </div>
+
+        <div class="result-card">
+          <div id="placeholder" class="placeholder"><div class="pulse-dot"></div><h3>Hasil akan tampil di sini</h3><p>Karena model bersifat multi-label, satu gambar dapat memunculkan beberapa kondisi sekaligus.</p></div>
+          <div id="loading" class="loading" hidden><div class="loader-ring"></div><h3>Model sedang membaca citra</h3><p id="loadingText">Memvalidasi file…</p></div>
+          <div id="result" hidden>
+            <div class="result-top"><div><span id="stateBadge" class="badge">—</span><h3 id="resultTitle">—</h3><p id="summary"></p></div><div class="top-score"><span>Skor tertinggi</span><strong id="topProbability">—</strong><small id="topLabel">—</small></div></div>
+            <div id="qualityWarnings"></div>
+            <div class="detected-wrap"><h4>Label yang melewati threshold</h4><div id="detectedList" class="detected-list"></div></div>
+            <div class="prob-wrap"><div class="prob-head"><h4>Skor seluruh label</h4><span>threshold berbeda per kelas</span></div><div id="probabilities" class="probabilities"></div></div>
+            <div class="disclaimer">Prototype ini bukan alat diagnosis. Skor model harus ditafsirkan bersama pemeriksaan klinis oleh tenaga kesehatan.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="labels" class="section labels-section">
+      <div class="section-heading light"><span>02 — LABEL DATASET</span><h2>Tujuh kondisi yang dipelajari</h2><p>Enam label penyakit dapat muncul bersamaan. Label normal diperlakukan eksklusif karena pada data training tidak muncul bersama label penyakit.</p></div>
+      <div class="label-grid">
+        <article><b>01</b><h3>Opacity</h3><p>Kelas pola kekeruhan pada citra.</p></article>
+        <article><b>02</b><h3>Retinopati Diabetik</h3><p>Pola retina yang dikaitkan dengan komplikasi diabetes.</p></article>
+        <article><b>03</b><h3>Glaukoma</h3><p>Pola yang pada dataset diberi label glaucoma.</p></article>
+        <article><b>04</b><h3>Edema Makula</h3><p>Pola yang menyerupai pembengkakan area makula.</p></article>
+        <article><b>05</b><h3>Degenerasi Makula</h3><p>Pola yang pada dataset dikaitkan dengan degenerasi makula.</p></article>
+        <article><b>06</b><h3>Oklusi Vaskular Retina</h3><p>Pola terkait gangguan pembuluh darah retina.</p></article>
+        <article><b>07</b><h3>Normal</h3><p>Citra yang pada dataset diberi label normal.</p></article>
+      </div>
+    </section>
+
+    <section id="model" class="section model-section">
+      <div class="section-heading"><span>03 — MODEL</span><h2>CNN multi-label, bukan softmax multiclass</h2><p>Model memakai tujuh neuron output dengan sigmoid dan BCEWithLogitsLoss. Dengan demikian tiap penyakit memiliki probabilitas independen dan dapat aktif bersamaan.</p></div>
+      <div class="model-layout">
+        <div class="pipeline">
+          <div><span>1</span><b>Resize & normalize</b><small>96×96 RGB, rentang −1 hingga 1</small></div><em>→</em>
+          <div><span>2</span><b>4 CNN blocks</b><small>Conv · BatchNorm · ReLU · Pool</small></div><em>→</em>
+          <div><span>3</span><b>Global pooling</b><small>Representasi fitur ringkas</small></div><em>→</em>
+          <div><span>4</span><b>7 Sigmoid</b><small>Probabilitas independen</small></div>
+        </div>
+        <div class="validation-card">
+          <span>Prototype validation</span><div><strong>{{ macro_f1 }}%</strong><small>Macro F1 setelah threshold calibration</small></div><div><strong>{{ micro_f1 }}%</strong><small>Micro F1 setelah threshold calibration</small></div><p>Split eksperimen: {{ train_count }} train / {{ val_count }} validation. Angka ini belum merupakan validasi klinis dan tidak boleh dipakai sebagai klaim performa medis.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>RetinaScan AI · 2026</span><span>Educational / research prototype</span></footer>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
